@@ -1,0 +1,123 @@
+/**************************************************************************************************
+
+  Phyplus Microelectronics Limited confidential and proprietary.
+  All rights reserved.
+
+  IMPORTANT: All rights of this software belong to Phyplus Microelectronics
+  Limited ("Phyplus"). Your use of this Software is limited to those
+  specific rights granted under  the terms of the business contract, the
+  confidential agreement, the non-disclosure agreement and any other forms
+  of agreements as a customer or a partner of Phyplus. You may not use this
+  Software unless you agree to abide by the terms of these agreements.
+  You acknowledge that the Software may not be modified, copied,
+  distributed or disclosed unless embedded on a Phyplus Bluetooth Low Energy
+  (BLE) integrated circuit, either as a product or is integrated into your
+  products.  Other than for the aforementioned purposes, you may not use,
+  reproduce, copy, prepare derivative works of, modify, distribute, perform,
+  display or sell this Software and/or its documentation for any purposes.
+
+  YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+  PROVIDED AS IS WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+  INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+  NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+  PHYPLUS OR ITS SUBSIDIARIES BE LIABLE OR OBLIGATED UNDER CONTRACT,
+  NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+  LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+  INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+  OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+  OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+  (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+
+**************************************************************************************************/
+
+/**************************************************************************************************
+  Filename:       bleSmartPeripheral.h
+  Revised:
+  Revision:
+
+  Description:    This file contains the smart BLE Peripheral sample application
+                  definitions and prototypes.
+
+
+**************************************************************************************************/
+
+#ifndef BLESMARTPERIPHERAL_H
+#define BLESMARTPERIPHERAL_H
+
+/*********************************************************************
+ * INCLUDES
+ */
+#include "types.h"
+#include "peripheral.h"
+
+/*********************************************************************
+ * CONSTANTS
+ */
+
+
+// Smart BLE Peripheral Task Events
+#define SBP_START_DEVICE_EVT							0x0001
+#define SBP_PERIODIC_EVT								0x0002
+#define SBP_ENTER_NOCONN_EVT							0x0004
+#define SBP_RESET_ADV_EVT								0x0008
+
+#if (defined HAL_KEY) && (HAL_KEY == TRUE)
+#define SBP_KEY_DEBOUNCE_EVT							0x4000
+#endif	//#if (defined HAL_KEY) && (HAL_KEY == TRUE)
+
+/*********************************************************************
+ * MACROS
+ */
+
+/*********************************************************************
+ * FUNCTIONS
+ */
+
+extern uint8 bleSmartPeripheral_TaskID;
+
+/*
+ * Task Initialization for the BLE Application
+ */
+extern void bleSmartPeripheral_Init( uint8 task_id );
+
+/*
+ * Task Event Processor for the BLE Application
+ */
+extern uint16 bleSmartPeripheral_ProcessEvent( uint8 task_id, uint16 events );
+
+/**
+ * @fn	  GetgapProfileState
+ *
+ * @brief   get gatt status
+ *
+ * @param   none.
+ *
+ * @return  GetgapProfileState
+ */
+extern gaprole_States_t GetgapProfileState(void);
+
+/**
+* @fn      GAP_SetadvInt
+*
+* @brief   set advertising interval time
+*
+* @param   none.
+*
+* @return  advInt:advertising interval time
+*/
+extern uint16 GAP_GetadvInt(void);
+
+/**
+* @fn      GAP_SetadvInt
+*
+* @brief   set connection interval time
+*
+* @param   none.
+*
+* @return  cntInt:connection interval time
+*/
+extern uint16 GAP_GetConnetInt(void);
+
+/*********************************************************************
+*********************************************************************/
+#endif /* BLESMARTPERIPHERAL_H */

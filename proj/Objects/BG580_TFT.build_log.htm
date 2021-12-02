@@ -1,0 +1,72 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: ¦ÌVision V5.31.0.0
+Copyright (C) 2020 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: Zhang Achilles, bough, LIC=D0DRA-1VF17-HJG6M-X6QKC-9HMEG-X6873
+ 
+Tool Versions:
+Toolchain:       MDK-ARM Plus  Version: 5.31.0.0
+Toolchain Path:  C:\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 6 (build 750)
+Assembler:       Armasm.exe V5.06 update 6 (build 750)
+Linker/Locator:  ArmLink.exe V5.06 update 6 (build 750)
+Library Manager: ArmAr.exe V5.06 update 6 (build 750)
+Hex Converter:   FromElf.exe V5.06 update 6 (build 750)
+CPU DLL:         SARMCM3.DLL V5.31.0.0
+Dialog DLL:      DARMCM1.DLL V1.19.3.0
+Target DLL:      Segger\JL2CM3.dll V2.99.38.0
+Dialog DLL:      TARMCM1.DLL V1.14.2.0
+ 
+<h2>Project:</h2>
+D:\workspace\ARM M0\PHY\PHY_BG580 TFT\proj\BG580 TFT.uvprojx
+Project File Date:  11/30/2021
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 6 (build 750)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
+Build target 'BG580_TFT'
+compiling light.c...
+compiling display.c...
+user\src\display.c(83): warning:  #550-D: variable "fIsChargeDisplaying"  was set but never used
+  static bool fIsChargeDisplaying = false;
+user\src\display.c(84): warning:  #177-D: variable "fIsHotDisplayOn"  was declared but never referenced
+  static bool fIsHotDisplayOn = false;
+user\src\display.c: 2 warnings, 0 errors
+compiling command_center.c...
+user\src\command_center.c(190): warning:  #177-D: variable "KEY_TESTMODE_Press_times"  was declared but never referenced
+  static uint8 KEY_TESTMODE_Press_times = 0;
+user\src\command_center.c: 1 warning, 0 errors
+linking...
+Program Size: Code=49844 RO-data=4392 RW-data=2728 ZI-data=15116  
+After Build - User command #1: fromelf.exe --bin  -o  ./bin  ./Objects/BG580_TFT.axf
+After Build - User command #2: fromelf.exe .\Objects\BG580_TFT.axf --i32combined --output .\bin\BG580_TFT.hex
+".\Objects\BG580_TFT.axf" - 0 Error(s), 3 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.5.7.0.pack
+                ARM.CMSIS.5.7.0
+                CMSIS (Cortex Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.4.0
+   * Component: Startup Version: 1.2.2
+
+<h2>Collection of Component include folders:</h2>
+  .\RTE\_BG580_TFT
+  C:\Keil_v5\Sky\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\Core\Include
+  C:\Keil_v5\Sky\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\Device\ARM\ARMCM0\Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:5.4.0
+
+   * Component: ARM::Device:Startup:1.2.2
+      Source file:   Device\ARM\ARMCM0\Source\system_ARMCM0.c
+      Include file:  Device\ARM\ARMCM0\Include\ARMCM0.h
+      Source file:   Device\ARM\ARMCM0\Source\ARM\startup_ARMCM0.s
+Build Time Elapsed:  00:00:01
+</pre>
+</body>
+</html>
